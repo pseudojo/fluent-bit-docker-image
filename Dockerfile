@@ -54,9 +54,10 @@ COPY fluent-bit.conf \
      plugins.conf \
      /fluent-bit/etc/
 
-FROM gcr.io/distroless/cc
-MAINTAINER Eduardo Silva <eduardo@treasure-data.com>
-LABEL Description="Fluent Bit docker image" Vendor="Fluent Organization" Version="1.1"
+# use centos instead of distroless image; gcr.io/distroless/cc
+FROM centos:7
+MAINTAINER Hyungu Cho <pseudojo.1989@gmail.com>
+LABEL Description="Fluent Bit docker image with centos 7.6.1810" Vendor="Fluent Organization" Version="1.0.5-centos7"
 
 COPY --from=builder /usr/lib/x86_64-linux-gnu/*sasl* /usr/lib/x86_64-linux-gnu/
 COPY --from=builder /usr/lib/x86_64-linux-gnu/libz* /usr/lib/x86_64-linux-gnu/
