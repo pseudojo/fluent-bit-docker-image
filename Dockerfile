@@ -59,19 +59,19 @@ FROM centos:7
 MAINTAINER Hyungu Cho <pseudojo.1989@gmail.com>
 LABEL Description="Fluent Bit docker image with centos 7.6.1810" Vendor="Fluent Organization" Version="1.0.5-centos7"
 
-COPY --from=builder /usr/lib/x86_64-linux-gnu/*sasl* /usr/lib/x86_64-linux-gnu/
-COPY --from=builder /usr/lib/x86_64-linux-gnu/libz* /usr/lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/libz* /lib/x86_64-linux-gnu/
-COPY --from=builder /usr/lib/x86_64-linux-gnu/libssl.so* /usr/lib/x86_64-linux-gnu/
-COPY --from=builder /usr/lib/x86_64-linux-gnu/libcrypto.so* /usr/lib/x86_64-linux-gnu/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/*sasl* /usr/lib64/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/libz* /usr/lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/libz* /lib64/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/libssl.so* /usr/lib64/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/libcrypto.so* /usr/lib64/
 # These below are all needed for systemd
-COPY --from=builder /lib/x86_64-linux-gnu/libsystemd* /lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/libselinux.so* /lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/liblzma.so* /lib/x86_64-linux-gnu/
-COPY --from=builder /usr/lib/x86_64-linux-gnu/liblz4.so* /usr/lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/libgcrypt.so* /lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/libpcre.so* /lib/x86_64-linux-gnu/
-COPY --from=builder /lib/x86_64-linux-gnu/libgpg-error.so* /lib/x86_64-linux-gnu/
+COPY --from=builder /lib/x86_64-linux-gnu/libsystemd* /lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/libselinux.so* /lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/liblzma.so* /lib64/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/liblz4.so* /usr/lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/libgcrypt.so* /lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/libpcre.so* /lib64/
+COPY --from=builder /lib/x86_64-linux-gnu/libgpg-error.so* /lib64/
 
 COPY --from=builder /fluent-bit /fluent-bit
 
