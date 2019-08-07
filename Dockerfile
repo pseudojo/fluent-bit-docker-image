@@ -59,6 +59,8 @@ FROM centos:7
 MAINTAINER Hyungu Cho <pseudojo.1989@gmail.com>
 LABEL Description="Fluent Bit docker image with centos 7.6.1810" Vendor="Fluent Organization" Version="1.0.5-centos7"
 
+RUN yum -y install vim
+
 COPY --from=builder /usr/lib/x86_64-linux-gnu/*sasl* /usr/lib64/
 COPY --from=builder /usr/lib/x86_64-linux-gnu/libz* /usr/lib64/
 COPY --from=builder /lib/x86_64-linux-gnu/libz* /lib64/
